@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HUG AI DEV - Redirecting...</title>
+  <meta name="robots" content="noindex">
+  <link rel="alternate" hreflang="en" href="/en/" />
+  <link rel="alternate" hreflang="es" href="/es/" />
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+    }
+    .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  <script>
+    // Detectar idioma del navegador
+    function detectLanguage() {
+      const lang = navigator.language || navigator.userLanguage;
+      return lang.toLowerCase().startsWith('es') ? 'es' : 'en';
+    }
+    // Redirigir al idioma apropiado
+    function redirect() {
+      const targetLang = detectLanguage();
+      const targetUrl = '/' + targetLang + '/';
+      document.getElementById('message').textContent = 
+        targetLang === 'es' ? 'Redirigiendo a la versión en español...' : 'Redirecting to English version...';
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 1500);
+    }
+    window.addEventListener('load', redirect);
+  </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    if (window.location.hostname !== 'localhost') {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="spinner"></div>
+    <h1>HUG AI DEV</h1>
+    <p id="message">Detecting language...</p>
+    <p style="font-size: 0.9em; opacity: 0.8;">
+      <a href="/en/" style="color: white; text-decoration: none;">English</a> | 
+      <a href="/es/" style="color: white; text-decoration: none;">Español</a>
+    </p>
+  </div>
+</body>
+</html> 
