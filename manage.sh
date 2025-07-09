@@ -30,6 +30,8 @@ show_help() {
   echo "  serve    - Servir la documentación localmente"
   echo "  deploy   - Desplegar a GitHub Pages"
   echo "  clean    - Limpiar archivos generados"
+  echo "  kill     - Matar procesos de mkdocs y liberar puertos"
+  echo "  restart  - Matar procesos y servir documentación"
   echo "  help     - Mostrar esta ayuda"
   echo ""
   echo "IDIOMAS:"
@@ -42,6 +44,8 @@ show_help() {
   echo "  $0 serve en       # Servir solo inglés en puerto 8000"
   echo "  $0 serve es       # Servir solo español en puerto 8001"
   echo "  $0 serve both     # Servir ambos en puertos 8000 y 8001"
+  echo "  $0 kill           # Matar procesos de mkdocs y liberar puertos"
+  echo "  $0 restart both   # Matar procesos y servir ambos idiomas"
   echo "  $0 deploy         # Desplegar ambos idiomas a GitHub Pages"
   echo ""
 }
@@ -248,6 +252,13 @@ clean_docs() {
   echo -e "${GREEN}✓ Limpieza completada${NC}"
 }
 
+# Función para matar procesos de mkdocs serve
+kill_mkdocs_processes() {
+  echo -e "${YELLOW}Matando procesos de mkdocs serve...${NC}"
+  pkill -f "mkdocs serve" 2>/dev/null || true
+  echo -e "${GREEN}✓ Procesos de mkdocs serve terminados${NC}"
+}
+
 # CLI principal
 ACTION=$1
 TARGET=$2
@@ -261,8 +272,8 @@ fi
 # Validación de argumentos
 if [[ -z "$TARGET" ]]; then
   case "$ACTION" in
-    deploy|clean)
-      # deploy y clean no necesitan target
+    deploy|clean|kill)
+      # deploy, clean y kill no necesitan target
       ;;
     *)
       echo -e "${RED}Error: Se requiere especificar el idioma (en|es|both)${NC}"
@@ -303,6 +314,15 @@ case "$ACTION" in
     
   clean)
     clean_docs
+    ;;
+    
+  kill)
+    kill_mkdocs_processes
+    ;;
+    
+  restart)
+    kill_mkdocs_processes
+    exec "$0" serve "$TARGET"
     ;;
     
   *)

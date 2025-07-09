@@ -4,3 +4,4 @@ docs-en/.DS_Store
 .cache/
 site/
 .env
+mkdocs-material/
