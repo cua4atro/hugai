@@ -109,6 +109,9 @@ extra:
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/hugaidev
 
+extra_css:
+  - assets/stylesheets/extra.css
+
 # Extensions
 markdown_extensions:
   - abbr
