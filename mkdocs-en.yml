@@ -34,7 +34,7 @@ nav:
   - Protocol:
     - Introduction: protocol/index.md
     - Specification:
-      - README: protocol/specification/README.md
+      - protocol/specification/index.md
       - Agents: protocol/specification/agents.md
       - Configuration: protocol/specification/configuration.md
       - Messages: protocol/specification/messages.md

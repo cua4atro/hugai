@@ -34,7 +34,7 @@ nav:
   - Protocolo:
     - Introducción: protocolo/index.md
     - Especificación:
-      - README: protocolo/especificacion/README.md
+      - protocolo/especificacion/index.md
       - Agentes: protocolo/especificacion/agentes.md
       - Configuración: protocolo/especificacion/configuracion.md
       - Mensajes: protocolo/especificacion/mensajes.md
