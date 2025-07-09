@@ -9,6 +9,7 @@ Tabla de Contenidos
 - [Instalación](#instalacion)
 - [Desarrollo Local](#desarrollo-local)
 - [Construcción del Sitio](#construccion-del-sitio)
+- [Despliegue](#despliegue)
 - [Estructura del Proyecto](#estructura-del-proyecto)
 - [Contribuciones](#contribuciones)
 - [Licencia](#licencia)
@@ -63,6 +64,25 @@ o:
     mkdocs build -f mkdocs-en.yml -d site/en
 
 El sitio generado estará disponible en el directorio `site/`.
+
+Despliegue
+----------
+
+Para desplegar la documentación (ambos idiomas) en GitHub Pages:
+
+1. Construye el sitio para ambos idiomas:
+
+       ./manage.sh build both
+
+2. Despliega en GitHub Pages (requiere ghp-import):
+
+       ./manage.sh deploy
+
+   Esto publicará el contenido del directorio `site/` en la rama `gh-pages` y hará la documentación accesible en:
+
+       https://docs.hugai.dev
+
+   > Nota: Debes tener instalado `ghp-import` (`pip install ghp-import`) y permisos de push en el repositorio.
 
 Estructura del Proyecto
 -----------------------
