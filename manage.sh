@@ -31,6 +31,7 @@ show_help() {
   echo "  deploy   - Desplegar a GitHub Pages"
   echo "  clean    - Limpiar archivos generados"
   echo "  kill     - Matar procesos de mkdocs y liberar puertos"
+  echo "  restart  - Matar procesos y servir documentación"
   echo "  help     - Mostrar esta ayuda"
   echo ""
   echo "IDIOMAS:"
@@ -44,6 +45,7 @@ show_help() {
   echo "  $0 serve es       # Servir solo español en puerto 8001"
   echo "  $0 serve both     # Servir ambos en puertos 8000 y 8001"
   echo "  $0 kill           # Matar procesos de mkdocs y liberar puertos"
+  echo "  $0 restart both   # Matar procesos y servir ambos idiomas"
   echo "  $0 deploy         # Desplegar ambos idiomas a GitHub Pages"
   echo ""
 }
@@ -250,20 +252,11 @@ clean_docs() {
   echo -e "${GREEN}✓ Limpieza completada${NC}"
 }
 
-# Función para matar procesos de mkdocs y liberar puertos
+# Función para matar procesos de mkdocs serve
 kill_mkdocs_processes() {
-  echo -e "${YELLOW}Matando procesos de mkdocs y liberando puertos 8000 y 8001...${NC}"
-  # Matar procesos de mkdocs
+  echo -e "${YELLOW}Matando procesos de mkdocs serve...${NC}"
   pkill -f "mkdocs serve" 2>/dev/null || true
-  # Liberar puertos 8000 y 8001
-  for port in 8000 8001; do
-    pid=$(lsof -ti tcp:$port)
-    if [ -n "$pid" ]; then
-      echo -e "${YELLOW}Liberando puerto $port (matando proceso $pid)...${NC}"
-      kill -9 $pid 2>/dev/null || true
-    fi
-  done
-  echo -e "${GREEN}✓ Procesos de mkdocs terminados y puertos liberados${NC}"
+  echo -e "${GREEN}✓ Procesos de mkdocs serve terminados${NC}"
 }
 
 # CLI principal
@@ -325,6 +318,11 @@ case "$ACTION" in
     
   kill)
     kill_mkdocs_processes
+    ;;
+    
+  restart)
+    kill_mkdocs_processes
+    exec "$0" serve "$TARGET"
     ;;
     
   *)
