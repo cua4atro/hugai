@@ -5,3 +5,4 @@ docs-en/.DS_Store
 site/
 .env
 mkdocs-material/
+material/

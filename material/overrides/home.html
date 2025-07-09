@@ -8,15 +8,18 @@
   <section class="mdx-container">
     <div class="md-grid md-typeset">
       <div class="mdx-hero">
-        <!-- <div class="mdx-hero__image">
-          <img src="assets/images/5a3ad23c-d868-4883-b55f-572b9b645538.png" alt="" width="1659" height="1200" draggable="false">
-        </div> -->
+        <div class="mdx-hero__image">
+          <!-- <img src="assets/images/illustration.png" alt="" width="1659" height="1200" draggable="false"> -->
+        </div>
         <div class="mdx-hero__content">
           <h1 id="hero-title">Human-Governed AI Development</h1>
           <p>{{ config.site_description }}.</p>
           <a id="hero-btn" href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}" class="md-button md-button--primary">
             Methodology
           </a>
+          <!-- <a href="{{ 'insiders/' | url }}" title="Material for MkDocs Insiders" class="md-button">
+            Get Insiders
+          </a> -->
           <script>
             (function() {
               var path = window.location.pathname;
@@ -31,9 +34,6 @@
               }
             })();
           </script>
-          <!-- <a href="{{ 'insiders/' | url }}" title="Material for MkDocs Insiders" class="md-button">
-            Get Insiders
-          </a> -->
         </div>
       </div>
     </div>
@@ -41,7 +41,3 @@
 {% endblock %}
 {% block content %}{% endblock %}
 {% block footer %}{% endblock %}
-
-
-
-
