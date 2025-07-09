@@ -1,0 +1,50 @@
+INHERIT: mkdocs-base.yml
+
+site_url: https://docs.hugai.dev/es
+docs_dir: docs-es
+
+# Configuración de idioma nativo de MkDocs Material
+theme:
+  language: es
+  name: material
+
+extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: Español
+      link: /es/
+      lang: es
+
+nav:
+  - Inicio: index.md
+  - Metodología:
+    - Introducción: metodologia/index.md
+    - Principios: metodologia/principios.md
+    - Objetivos: metodologia/objetivos.md
+    - Fases: metodologia/fases.md
+    - Flujos: metodologia/flujos.md
+    - Roles: metodologia/roles.md
+    - Tipos de Agentes: metodologia/tipos-agentes.md
+    - Gobernanza: metodologia/gobernanza.md
+    - Mejores Prácticas: metodologia/mejores-practicas.md
+    - Limitaciones: metodologia/limitaciones.md
+    - Nota: metodologia/nota.md
+  - Protocolo:
+    - Introducción: protocolo/index.md
+    - Especificación:
+      - README: protocolo/especificacion/README.md
+      - Agentes: protocolo/especificacion/agentes.md
+      - Configuración: protocolo/especificacion/configuracion.md
+      - Mensajes: protocolo/especificacion/mensajes.md
+      - Headers: protocolo/especificacion/headers.md
+      - Tipos: protocolo/especificacion/tipos.md
+      - Flujos: protocolo/especificacion/flujos.md
+      - Enums y Errores: protocolo/especificacion/enums-errores.md
+      - Ejemplos: protocolo/especificacion/ejemplos.md
+      - Glosario: protocolo/especificacion/glosario.md
+      - Extensibilidad: protocolo/especificacion/extensibilidad.md
+      - Seguridad: protocolo/especificacion/seguridad.md
+      - Roadmap: protocolo/especificacion/roadmap.md
+  - Glosario: glosario.md

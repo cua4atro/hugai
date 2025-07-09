@@ -1,0 +1,6 @@
+# Introducción
+La metodología **HugAI** es un marco integral para el desarrollo de software asistido por inteligencia artificial, diseñado para maximizar la productividad y la calidad sin perder el control humano en los puntos críticos del ciclo de vida. HugAI integra agentes de IA especializados en cada fase del desarrollo, pero siempre bajo una filosofía de "gobernanza humana": las decisiones clave, la supervisión y la validación final permanecen en manos de las personas.
+
+Esta metodología surge ante la necesidad de combinar lo mejor de la automatización inteligente con la experiencia, el criterio y la responsabilidad humana. Su objetivo es acelerar la entrega de valor, mejorar la consistencia y seguridad del software, y facilitar la colaboración entre equipos humanos y agentes de IA, todo dentro de un marco transparente, auditable y adaptable a distintos contextos organizacionales.
+
+HugAI se inspira en prácticas ágiles, DevOps y en los avances recientes en IA generativa, pero añade una capa de gobernanza y orquestación multi-agente que permite escalar la adopción de IA en desarrollo de software de manera responsable y sostenible. 

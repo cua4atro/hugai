@@ -1,0 +1,1 @@
+> **NOTA:** Este documento es el punto de partida para la versión 2 de la metodología HugAI. Cada sección será completada y mejorada iterativamente. 

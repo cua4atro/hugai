@@ -1,0 +1,50 @@
+INHERIT: mkdocs-base.yml
+
+site_url: https://docs.hugai.dev/en
+docs_dir: docs-en
+
+# Configuración de idioma nativo de MkDocs Material
+theme:
+  language: en
+  name: material
+
+extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: Español
+      link: /es/
+      lang: es
+
+nav:
+  - Home: index.md
+  - Methodology:
+    - Introduction: methodology/index.md
+    - Principles: methodology/principles.md
+    - Objectives: methodology/objectives.md
+    - Phases: methodology/phases.md
+    - Workflows: methodology/workflows.md
+    - Roles: methodology/roles.md
+    - Types of Agents: methodology/types-of-agents.md
+    - Governance: methodology/governance.md
+    - Best Practices: methodology/best-practices.md
+    - Limitations: methodology/limitations.md
+    - Note: methodology/note.md
+  - Protocol:
+    - Introduction: protocol/index.md
+    - Specification:
+      - README: protocol/specification/README.md
+      - Agents: protocol/specification/agents.md
+      - Configuration: protocol/specification/configuration.md
+      - Messages: protocol/specification/messages.md
+      - Headers: protocol/specification/headers.md
+      - Types: protocol/specification/types.md
+      - Flows: protocol/specification/flows.md
+      - Enums and Errors: protocol/specification/enums-errors.md
+      - Examples: protocol/specification/examples.md
+      - Glossary: protocol/specification/glossary.md
+      - Extensibility: protocol/specification/extensibility.md
+      - Security: protocol/specification/security.md
+      - Roadmap: protocol/specification/roadmap.md
+  - Glossary: glossary.md
