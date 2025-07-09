@@ -12,11 +12,25 @@
           <img src="assets/images/5a3ad23c-d868-4883-b55f-572b9b645538.png" alt="" width="1659" height="1200" draggable="false">
         </div> -->
         <div class="mdx-hero__content">
-          <h1>Human-Governed AI Development </h1>
+          <h1 id="hero-title">Human-Governed AI Development</h1>
           <p>{{ config.site_description }}.</p>
-          <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}" class="md-button md-button--primary">
+          <a id="hero-btn" href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}" class="md-button md-button--primary">
             Methodology
           </a>
+          <script>
+            (function() {
+              var path = window.location.pathname;
+              var isEs = path.includes('/es/');
+              var isEn = path.includes('/en/');
+              if (isEs) {
+                document.getElementById('hero-title').textContent = 'Desarrollo de IA Gobernada por Humanos';
+                document.getElementById('hero-btn').textContent = 'Metodología';
+              } else if (isEn) {
+                document.getElementById('hero-title').textContent = 'Human-Governed AI Development';
+                document.getElementById('hero-btn').textContent = 'Methodology';
+              }
+            })();
+          </script>
           <!-- <a href="{{ 'insiders/' | url }}" title="Material for MkDocs Insiders" class="md-button">
             Get Insiders
           </a> -->
