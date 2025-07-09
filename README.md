@@ -1,6 +1,6 @@
 # HUGAI Methodology Documentation
 
-A comprehensive documentation site for the HUGAI (Human-Guided AI Dev) Methodology, maintained with MkDocs Material. This repository contains the source files and the configuration needed to build, serve, and publish the documentation.
+A comprehensive documentation site for the HUGAI (Human-Guided AI Dev) Methodology, maintained with MkDocs Material. This repository contains the source files and configuration needed to build, serve, and publish the documentation in both English and Spanish.
 
 Table of Contents
 -----------------
@@ -39,24 +39,28 @@ Installation
 Local Development
 -----------------
 
-Serve the documentation locally with live reloading:
+Serve the documentation locally with live reloading (English or Spanish):
 
-    ./sdc-serve.sh
+    ./manage.sh serve en      # English docs at http://127.0.0.1:8000
+    ./manage.sh serve es      # Spanish docs at http://127.0.0.1:8001
+    ./manage.sh serve both    # Both languages simultaneously
 
-or:
+or, using MkDocs directly:
 
-    mkdocs serve
+    mkdocs serve -f mkdocs-en.yml   # English
+    mkdocs serve -f mkdocs-es.yml   # Spanish
 
 Building the Site
 -----------------
 
 Generate the static site for deployment:
 
-    ./sdc-build.sh
+    ./manage.sh build both
 
 or:
 
-    mkdocs build --clean
+    mkdocs build -f mkdocs-en.yml -d site/en
+    mkdocs build -f mkdocs-es.yml -d site/es
 
 The built site will be available in the `site/` directory.
 
@@ -64,13 +68,18 @@ Project Structure
 -----------------
 
     .
-    ├── docs/                # Markdown pages for MkDocs
+    ├── methodology/         # English methodology docs (was docs-en/metodologia)
+    ├── protocol/            # English protocol docs (was docs-en/protocolo)
+    │   └── specification/   # English protocol specification (was docs-en/protocolo/especificacion)
+    ├── docs-es/             # Spanish documentation
     ├── material/            # Custom theme overrides (MkDocs Material)
-    ├── mkdocs.yml           # Site configuration file
+    ├── mkdocs-en.yml        # English site configuration
+    ├── mkdocs-es.yml        # Spanish site configuration
+    ├── mkdocs-base.yml      # Shared MkDocs configuration
     ├── requirements.txt     # Python dependencies for building the site
-    ├── sdc-serve.sh         # Script to serve the site locally
-    ├── sdc-build.sh         # Script to build the static site
-    └── README.md            # This file
+    ├── manage.sh            # Script to build/serve/deploy the site
+    ├── README.md            # This file (English)
+    └── LEEME.md             # Spanish readme
 
 Contributing
 ------------
@@ -87,3 +96,7 @@ License
 -------
 
 © 2024–2025 Sebastian Larrauri. Documentation is released under the Creative Commons Attribution 4.0 International (CC BY 4.0). For more details, see the `mkdocs.yml` license configuration.
+
+---
+
+> Para instrucciones en español, consulta el archivo [LEEME.md](LEEME.md).
